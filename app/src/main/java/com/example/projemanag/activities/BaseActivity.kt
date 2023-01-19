@@ -6,12 +6,15 @@ import android.os.Bundle
 import android.widget.TextView
 import com.example.projemanag.R
 import com.example.projemanag.databinding.ActivityBaseBinding
+import com.example.projemanag.databinding.DialogProgressBinding
 
 open class BaseActivity : AppCompatActivity() {
 
     private var doubleBackToExitPressedOnce = false
 
     private lateinit var mProgressDialog: Dialog
+
+    private lateinit var bindingForDialog: DialogProgressBinding
 
     private lateinit var binding: ActivityBaseBinding
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,12 +29,13 @@ open class BaseActivity : AppCompatActivity() {
     fun showProgressDialog(text: String) {
         mProgressDialog = Dialog(this)
 
+        bindingForDialog = DialogProgressBinding.inflate(layoutInflater);
+
         /*Set the screen content from a layout resource.
         The resource will be inflated, adding all top-level views to the screen.*/
-        mProgressDialog.setContentView(R.layout.dialog_progress)
+        mProgressDialog.setContentView(bindingForDialog.root)
 
-
-//        mProgressDialog.tv_progress_text.text = text
+        bindingForDialog.tvProgressText.text = text
 
         //Start the dialog and display it on screen.
         mProgressDialog.show()
