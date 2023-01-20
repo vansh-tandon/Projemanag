@@ -1,7 +1,6 @@
-package com.example.projemanag.activities
+package com.project.projemanag.activities
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.WindowManager
 import com.example.projemanag.databinding.ActivityIntroBinding

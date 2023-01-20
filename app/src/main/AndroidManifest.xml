@@ -12,24 +12,24 @@
         android:theme="@style/AppTheme"
         tools:targetApi="31">
         <activity
-            android:name=".BaseActivity"
+            android:name="com.project.projemanag.activities.BaseActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.SignInActivity"
+            android:name="com.project.projemanag.activities.SignInActivity"
             android:exported="false"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".activities.SignUpActivity"
+            android:name="com.project.projemanag.activities.SignUpActivity"
             android:exported="false"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".activities.IntroActivity"
+            android:name="com.project.projemanag.activities.IntroActivity"
             android:exported="false"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".activities.SplashActivity"
+            android:name="com.project.projemanag.activities.SplashActivity"
             android:exported="true"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
@@ -40,7 +40,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activities.MainActivity"
+            android:name="com.project.projemanag.activities.MainActivity"
             android:exported="true" />
     </application>
 

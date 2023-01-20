@@ -1,11 +1,10 @@
-package com.example.projemanag.activities
+package com.project.projemanag.activities
 
 import android.annotation.SuppressLint
 import android.app.Dialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
-import android.widget.TextView
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import com.example.projemanag.R

@@ -1,4 +1,4 @@
-package com.example.projemanag
+package com.project.projemanag
 
 import org.junit.Test
 
