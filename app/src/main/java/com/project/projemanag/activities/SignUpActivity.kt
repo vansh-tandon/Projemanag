@@ -22,6 +22,10 @@ class SignUpActivity : BaseActivity() {
             WindowManager.LayoutParams.FLAG_FULLSCREEN
         )
         setActionBar()
+
+        binding.btnSignUp.setOnClickListener {
+            registerUser()
+        }
     }
 
     private fun setActionBar(){
@@ -36,9 +40,6 @@ class SignUpActivity : BaseActivity() {
             onBackPressed()
         }
 
-        binding.btnSignUp.setOnClickListener {
-            registerUser()
-        }
     }
 
     private fun registerUser(){
@@ -50,7 +51,7 @@ class SignUpActivity : BaseActivity() {
             showProgressDialog(resources.getString(R.string.please_wait))
             FirebaseAuth.getInstance()
                 .createUserWithEmailAndPassword(email, password).addOnCompleteListener { task ->
-                    hideProgressDialog()
+                   hideProgressDialog()
                     if (task.isSuccessful) {
                         val firebaseUser: FirebaseUser = task.result!!.user!!
                         val registeredEmail = firebaseUser.email
@@ -62,7 +63,7 @@ class SignUpActivity : BaseActivity() {
                         FirebaseAuth.getInstance().signOut()
                         finish()
                     } else {
-                        Toast.makeText(this, task.exception!!.message, Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this, "Registration failed", Toast.LENGTH_SHORT).show()
                     }
                 }
         }
