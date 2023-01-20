@@ -4,8 +4,8 @@ import android.os.Bundle
 import android.text.TextUtils
 import android.view.WindowManager
 import android.widget.Toast
-import com.example.projemanag.R
-import com.example.projemanag.databinding.ActivitySignUpBinding
+import com.project.projemanag.R
+import com.project.projemanag.databinding.ActivitySignUpBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 

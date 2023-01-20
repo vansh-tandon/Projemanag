@@ -7,9 +7,9 @@ import android.os.Bundle
 import android.os.Handler
 import android.widget.Toast
 import androidx.core.content.ContextCompat
-import com.example.projemanag.R
-import com.example.projemanag.databinding.ActivityBaseBinding
-import com.example.projemanag.databinding.DialogProgressBinding
+import com.project.projemanag.R
+import com.project.projemanag.databinding.ActivityBaseBinding
+import com.project.projemanag.databinding.DialogProgressBinding
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 

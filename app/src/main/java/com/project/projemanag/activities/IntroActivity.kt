@@ -3,7 +3,7 @@ package com.project.projemanag.activities
 import android.content.Intent
 import android.os.Bundle
 import android.view.WindowManager
-import com.example.projemanag.databinding.ActivityIntroBinding
+import com.project.projemanag.databinding.ActivityIntroBinding
 
 class IntroActivity : BaseActivity() {
 

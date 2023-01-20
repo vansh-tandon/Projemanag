@@ -1,13 +1,15 @@
 package com.project.projemanag.activities
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.Typeface
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.view.WindowManager
-import com.example.projemanag.databinding.ActivitySplashBinding
+import com.project.projemanag.databinding.ActivitySplashBinding
 
+@SuppressLint("CustomSplashScreen")
 class SplashActivity : AppCompatActivity() {
 
     private lateinit var binding:ActivitySplashBinding

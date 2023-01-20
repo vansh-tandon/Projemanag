@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace 'com.example.projemanag'
+    namespace 'com.project.projemanag'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.example.projemanag"
+        applicationId "com.project.projemanag"
         minSdk 24
         targetSdk 33
         versionCode 1

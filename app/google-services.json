@@ -7,38 +7,9 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:295803213579:android:fd651042658dde0280340e",
+        "mobilesdk_app_id": "1:295803213579:android:d9bec4c7b839060a80340e",
         "android_client_info": {
-          "package_name": "com.example.projemanag"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "295803213579-h6ddj6defs0hs3rtlkllvkshh8gf2qli.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyC26j_hJZQGyWv0sXPfhXGRv6E3dfFob9w"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "295803213579-h6ddj6defs0hs3rtlkllvkshh8gf2qli.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:295803213579:android:c5dada3cc0ab79d280340e",
-        "android_client_info": {
-          "package_name": "com.plugnplay.projemanag"
+          "package_name": "com.project.projemanag"
         }
       },
       "oauth_client": [

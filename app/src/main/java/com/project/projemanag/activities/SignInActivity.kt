@@ -3,8 +3,8 @@ package com.project.projemanag.activities
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.WindowManager
-import com.example.projemanag.R
-import com.example.projemanag.databinding.ActivitySignInBinding
+import com.project.projemanag.R
+import com.project.projemanag.databinding.ActivitySignInBinding
 
 class SignInActivity : AppCompatActivity() {
 
