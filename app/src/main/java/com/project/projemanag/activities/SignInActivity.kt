@@ -24,7 +24,6 @@ class SignInActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivitySignInBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
         auth = FirebaseAuth.getInstance()
         window.setFlags(
             WindowManager.LayoutParams.FLAG_FULLSCREEN,
