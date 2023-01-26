@@ -1,15 +1,12 @@
 package com.project.projemanag.activities
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Log
 import android.view.WindowManager
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.ktx.Firebase
 import com.project.projemanag.R
 import com.project.projemanag.databinding.ActivitySignInBinding
 
@@ -46,6 +43,12 @@ class SignInActivity : BaseActivity() {
         binding.toolbarSignInActivity.setNavigationOnClickListener {
             onBackPressed()
         }
+    }
+
+    fun signInSuccess (user: com.google.firebase.firestore.auth.User?){
+        hideProgressDialog()
+        startActivity(Intent(this, MainActivity::class.java))
+        finish()
     }
 
     private fun signInRegisteredUser(){

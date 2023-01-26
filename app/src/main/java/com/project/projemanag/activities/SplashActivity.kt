@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.view.WindowManager
 import com.project.projemanag.databinding.ActivitySplashBinding
+import com.project.projemanag.firebase.FirestoreClass
 
 @SuppressLint("CustomSplashScreen")
 class SplashActivity : AppCompatActivity() {
@@ -28,6 +29,15 @@ class SplashActivity : AppCompatActivity() {
         binding.tvAppName.typeface = typeface
 
         Handler().postDelayed({
+
+            val currentUserId = FirestoreClass().getCurrentUserId()
+
+            if(currentUserId.isNotEmpty()){
+                startActivity(Intent(this,  MainActivity::class.java))
+            }
+            else{
+                startActivity(Intent(this, IntroActivity::class.java))
+            }
             startActivity(Intent(this, IntroActivity::class.java))
             finish()
         },2500)

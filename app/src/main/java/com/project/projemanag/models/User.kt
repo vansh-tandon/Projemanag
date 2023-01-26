@@ -24,7 +24,12 @@ data class User(
     override fun describeContents(): Int = 0
 
     override fun writeToParcel(dest: Parcel, flags: Int) = with(dest)  {
-        TODO("Not yet implemented")
+        writeString(id)
+        writeString(name)
+        writeString(email)
+        writeString(image)
+        writeLong(mobile)
+        writeString(fcmToken)
     }
 
     companion object CREATOR : Parcelable.Creator<User> {

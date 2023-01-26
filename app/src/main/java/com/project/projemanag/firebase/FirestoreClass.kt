@@ -26,7 +26,28 @@ class FirestoreClass {
             }
 
     }
-    private fun getCurrentUserId(): String{
-        return FirebaseAuth.getInstance().currentUser!!.uid
+
+    fun signInUser(activity: SignInActivity){
+        mFireStore.collection("Users")
+            .document(getCurrentUserId())
+            .get()
+            .addOnSuccessListener { document ->
+                val loggedInUser = document.toObject(User::class.java)
+                if (loggedInUser != null) {
+                    activity.signInSuccess(loggedInUser)
+                }
+            }
+            .addOnFailureListener {
+                e->
+            Log.e("SignInUser","Error writing document", e)
+            }
+    }
+    fun getCurrentUserId(): String{
+        val currentUser =FirebaseAuth.getInstance().currentUser
+        var currentUserId = ""
+        if(currentUser != null){
+            currentUserId = currentUser.uid
+        }
+        return currentUserId
     }
 }
