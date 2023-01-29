@@ -9,6 +9,7 @@ import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.project.projemanag.R
 import com.project.projemanag.databinding.ActivitySignInBinding
+import com.project.projemanag.models.User
 
 class SignInActivity : BaseActivity() {
 
@@ -45,7 +46,7 @@ class SignInActivity : BaseActivity() {
         }
     }
 
-    fun signInSuccess (user: com.google.firebase.firestore.auth.User?){
+    fun signInSuccess (user: User){
         hideProgressDialog()
         startActivity(Intent(this, MainActivity::class.java))
         finish()

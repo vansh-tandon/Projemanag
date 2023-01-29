@@ -1,17 +1,19 @@
 package com.project.projemanag.activities
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
+import android.widget.TextView
 import android.widget.Toast
-import android.widget.Toolbar
 import androidx.core.view.GravityCompat
+import com.bumptech.glide.Glide
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
+
 import com.project.projemanag.R
 import com.project.projemanag.databinding.ActivityMainBinding
-import com.project.projemanag.databinding.ActivitySignInBinding
+import com.project.projemanag.firebase.FirestoreClass
+import com.project.projemanag.models.User
 
 class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedListener {
 
@@ -25,6 +27,8 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         setupActionBar()
 
         binding.navView.setNavigationItemSelectedListener(this)
+
+        FirestoreClass().signInUser(this)
     }
 
     private fun setupActionBar(){
@@ -52,6 +56,17 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         }
     }
 
+    fun updateNavigationUserDetails(user: User?) {
+        Glide
+            .with(this)
+            .load(user!!.image)
+            .centerCrop()
+            .placeholder(R.drawable.ic_user_place_holder)
+            .into(findViewById(R.id.iv_user_image));
+        val textView = findViewById<TextView>(R.id.tv_username)
+        textView.text = user.name
+
+    }
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
             R.id.nav_my_profile -> {
