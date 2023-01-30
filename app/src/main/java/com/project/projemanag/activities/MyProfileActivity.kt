@@ -30,6 +30,7 @@ class MyProfileActivity : BaseActivity() {
 
     private var mSelectedImageFileUri : Uri? = null
     private var mProfileImageURL : String = ""
+    private lateinit var  mUserDetails: User
 
     private lateinit var binding: ActivityMyProfileBinding
 
@@ -123,6 +124,9 @@ class MyProfileActivity : BaseActivity() {
     }
 
     fun setUserDataInUI(user: User){
+
+        mUserDetails = user
+
         Glide
             .with(this@MyProfileActivity)
             .load(user.image)
@@ -174,5 +178,10 @@ class MyProfileActivity : BaseActivity() {
         //to get to know the type of extension used
         return MimeTypeMap.getSingleton()
             .getExtensionFromMimeType(contentResolver.getType(uri!!))
+    }
+
+    fun profileUpdateSuccess(){
+        hideProgressDialog()
+        finish()
     }
 }
