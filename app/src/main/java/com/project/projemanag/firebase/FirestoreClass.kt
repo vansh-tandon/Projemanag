@@ -39,6 +39,7 @@ class FirestoreClass {
             .addOnSuccessListener {
                 Log.i(activity.javaClass.simpleName, "Profile Data update successfully!")
                 Toast.makeText(activity, "Profile updated successfully", Toast.LENGTH_LONG).show()
+                activity.profileUpdateSuccess()
             }.addOnFailureListener {
                 e ->
                 activity.hideProgressDialog()

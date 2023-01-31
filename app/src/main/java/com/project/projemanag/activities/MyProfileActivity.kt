@@ -18,6 +18,7 @@ import com.project.projemanag.R
 import com.project.projemanag.databinding.ActivityMyProfileBinding
 import com.project.projemanag.firebase.FirestoreClass
 import com.project.projemanag.models.User
+import com.project.projemanag.utils.Constants
 import java.io.IOException
 
 
@@ -58,6 +59,10 @@ class MyProfileActivity : BaseActivity() {
         binding.btnUpdate.setOnClickListener {
             if(mSelectedImageFileUri != null){
                 uploadUserImage()
+            }
+            else{
+                showProgressDialog(resources.getString(R.string.please_wait))
+                updateUserProfileData()
             }
         }
     }
@@ -141,6 +146,30 @@ class MyProfileActivity : BaseActivity() {
         }
     }
 
+    private fun updateUserProfileData() {
+        val userHashMap = HashMap<String, Any>()
+
+//        var anyChangesMade = false
+
+        if (mProfileImageURL.isNotEmpty() && mProfileImageURL != mUserDetails.image) {
+            userHashMap[Constants.IMAGE] = mProfileImageURL
+//            anyChangesMade = true
+        }
+
+        if (binding.etName.text.toString() != mUserDetails.name) {
+            userHashMap[Constants.NAME] = binding.etName.toString()
+//            anyChangesMade = true
+        }
+
+        if (binding.etMobile.text.toString() != mUserDetails.mobile.toString()) {
+            userHashMap[Constants.MOBILE] = binding.etMobile.text.toString().toLong()
+        }
+
+//        if (anyChangesMade) {
+            FirestoreClass().updateUserProfileData(this, userHashMap)
+//        }
+    }
+
     private fun uploadUserImage(){
         showProgressDialog(resources.getString(R.string.please_wait))
         if(mSelectedImageFileUri != null){
@@ -158,7 +187,7 @@ class MyProfileActivity : BaseActivity() {
                 taskSnapshot.metadata!!.reference!!.downloadUrl.addOnSuccessListener {
                     uri -> Log.e("Downloadable Image URI", uri.toString())
 
-                    hideProgressDialog()
+                    updateUserProfileData()
                 }
             }.addOnFailureListener {
                 exception ->

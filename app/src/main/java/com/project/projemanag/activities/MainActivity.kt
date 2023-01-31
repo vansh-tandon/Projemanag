@@ -16,6 +16,10 @@ import com.project.projemanag.models.User
 
 class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedListener {
 
+    companion object{
+        const val MY_PROFILE_CODE: Int = 11
+    }
+
 
     private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
