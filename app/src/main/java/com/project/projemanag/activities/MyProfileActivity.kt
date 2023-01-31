@@ -157,7 +157,7 @@ class MyProfileActivity : BaseActivity() {
         }
 
         if (binding.etName.text.toString() != mUserDetails.name) {
-            userHashMap[Constants.NAME] = binding.etName.toString()
+            userHashMap[Constants.NAME] = binding.etName.text.toString()
 //            anyChangesMade = true
         }
 
@@ -211,6 +211,7 @@ class MyProfileActivity : BaseActivity() {
 
     fun profileUpdateSuccess(){
         hideProgressDialog()
+        setResult(Activity.RESULT_OK)
         finish()
     }
 }
