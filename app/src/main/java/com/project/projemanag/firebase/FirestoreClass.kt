@@ -7,10 +7,9 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SetOptions
 import com.google.firebase.firestore.auth.User
-import com.project.projemanag.activities.MainActivity
-import com.project.projemanag.activities.MyProfileActivity
-import com.project.projemanag.activities.SignInActivity
-import com.project.projemanag.activities.SignUpActivity
+import com.project.projemanag.activities.*
+import com.project.projemanag.models.Board
+import com.project.projemanag.utils.Constants
 
 class FirestoreClass {
 
@@ -29,6 +28,21 @@ class FirestoreClass {
                 Log.d("failured",it.toString())
             }
 
+    }
+
+    fun createBoard(activity: CreateBoardActivity, board: Board){
+        mFireStore.collection(Constants.BOARDS)
+            .document()
+            .set(board, SetOptions.merge())
+            .addOnSuccessListener {
+                Log.e(activity.javaClass.simpleName, "Board created successfully.")
+                Toast.makeText(activity, "Board created successfully.", Toast.LENGTH_SHORT).show()
+                activity.boardCreateSuccessfully()
+            }.addOnFailureListener {
+                exception ->
+                    activity.hideProgressDialog()
+                Log.e(activity.javaClass.simpleName, "Error while creating a board.", exception)
+            }
     }
 
     fun updateUserProfileData(activity: MyProfileActivity,
