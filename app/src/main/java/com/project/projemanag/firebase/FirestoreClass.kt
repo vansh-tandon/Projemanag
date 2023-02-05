@@ -21,11 +21,11 @@ class FirestoreClass {
             .document(getCurrentUserId())
             .set(userInfo, SetOptions.merge())
             .addOnSuccessListener {
-                Log.d("successs",it.toString())
+                Log.d("successes",it.toString())
                 activity.userRegisteredSuccess()
             }
             .addOnFailureListener {
-                Log.d("failured",it.toString())
+                Log.d("failure",it.toString())
             }
 
     }
